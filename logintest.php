@@ -2,7 +2,7 @@
 include 'libs/load.php';
 
 
-$user = "juma";
+$user = "umamahe";
 $pass = "123";
 $result = NULL;
 if(Session::get('is_loggined')){
