@@ -2,9 +2,17 @@
 include 'libs/load.php';
 
 
-$user = "umamahe";
+$user = "juma";
 $pass = "123";
 $result = NULL;
+
+if (isset($_GET['logout'])) {
+    Session::destroy();
+    die("Session destroyed, <a href='logintest.php'>Login Again</a>");
+}
+
+
+
 if(Session::get('is_loggined')){
     $username = Session::get('session_user');
     print("welcome back, $username[username]");
@@ -22,4 +30,8 @@ else{
 echo "failed";
 }
 }
+echo <<<EOL
+<br><br><a href="logintest.php?logout">Logout</a>
+EOL;
+
 ?>

@@ -7,16 +7,54 @@ Session::start();
 
 function load_template($name)
 {
-    include $_SERVER['DOCUMENT_ROOT']."/app/_templates/$name.php";
+    include $_SERVER['DOCUMENT_ROOT']."/uma_project/_templates/$name.php";
 }
 
 function verify($username, $password)
 {
-    if ($username == 'seshu' and $password == '123') {
-        return true;
-    } else {
-        return false;
+    // if ($username == 'seshu' and $password == '123') {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+
+
+
+    $user = $username;
+    $pass = $password;
+    $result = NULL;
+    
+    if (isset($_GET['logout'])) {
+        Session::destroy();
+        die("Session destroyed, <a href='login.php'>Login Again</a>");
     }
+    
+    
+    
+    if(Session::get('is_loggined')){
+        $username = Session::get('session_user');
+        print("welcome back, $username[username]");
+        $result = $username;
+    }
+    else{
+        print("No session found");
+    $result = User::login($user,$pass);
+    if($result){
+    echo "success, $result[username]";
+    Session::set('is_loggined',true);
+    Session::set('session_user',$result);
+return true;
+    }
+    else{
+    echo "failed";
+    return false;
+    }
+    }
+    echo <<<EOL
+    <br><br><a href="login.php?logout">Logout</a>
+    EOL;
+    
+
 }
 
 

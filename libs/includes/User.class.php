@@ -34,17 +34,19 @@ class User
         $query = "SELECT * FROM `auth` WHERE `username` = '$user'";
         $conn = Database::getConnection();
         $result = $conn->query($query);
-        if($result->num_rows == 1){
+        try{if($result->num_rows == 1){
             $row = $result->fetch_assoc();
-              if (password_verify($pass,$row['password']))
+              
+            try{
+            if (password_verify($pass,$row['password']))
               {
             return $row;
-        }
-        else{
+        }}
+        catch(Exception $e){
             return false;
         }
-        }
-        else{
+        }}
+        catch(Exception $e){
             return false;
         }
     }
@@ -60,6 +62,7 @@ class User
         $conn = Database::getConnection();
         $result = $conn->query($query);
         if($result->num_rows == 1){
+            $row = $result->fetch_assoc();
             $id = $row['id'];
             $this->id = $id; 
         }
@@ -76,29 +79,12 @@ class User
     public function setBio($bio)
     {
   
-        $query = "UPDATE `user` SET `bio`=' $bio' WHERE `id`= $id";
-        $conn = Database::getConnection();
-        $result = $conn->query($query);
-        if($result->num_rows == 1){
-          return true;
-        }
-        else{
-            return false;
-        }
+   
     }
 
     public function getBio($id)
     {
-        $query = "SELECT * FROM `user` WHERE `id` = '$id'";
-        $conn = Database::getConnection();
-        $result = $conn->query($query);
-        if($result->num_rows == 1){
-            $row = $result->fetch_assoc();
-            return $row['bio'];
-        }
-        else{
-            return false;
-        }
+
     }
 
     public function setAvatar()
