@@ -1,8 +1,9 @@
 
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-        <span class="fs-4">Simple header</span>
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 container">
+      <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <!doctype html>
+       
+        <span class="fs-4">LENS ELEMENTS</span>
       </a>
 
       <ul class="nav nav-pills">

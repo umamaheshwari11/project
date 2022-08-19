@@ -91,8 +91,27 @@ class User
     {
     }
 
-    public function getAvatar()
+    public static function upload($uploadfile,$description)
     {
+        $conn = Database::getConnection();
+        $sql = "INSERT INTO `image` (`uploadfile`, `description`)
+        VALUES ('$uploadfile','$description')";
+        $error = false;
+        try{
+        if ($conn->query($sql) === true) {
+            $error = false;
+        } 
+        } catch(Exception $e){
+            // echo "Error: " . $sql . "<br>" . $conn->error;
+            $error = $conn->error;
+        }
+    
+        // $conn->close();
+        return $error;
     }
+
+    
+
+
 }
 
