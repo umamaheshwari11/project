@@ -3,7 +3,7 @@
 $conn = mysqli_connect('mysql.selfmade.ninja','umamaheshwari','umamaheshwari', 'umamaheshwari_project');
 
 // lets assume a user is logged in with id $user_id
-$user_id = 2;
+$user_id = Session::get('session_user')['id'];
 
 if (!$conn) {
   die("Error connecting to database: " . mysqli_connect_error($conn));
@@ -112,9 +112,6 @@ function userDisliked($post_id)
   }
 }
 
-$sql = "SELECT * FROM posts";
-$result = mysqli_query($conn, $sql);
-// fetch all posts from database
-// return them as an associative array called $posts
-$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
+?>
 

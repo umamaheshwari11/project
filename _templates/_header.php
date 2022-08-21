@@ -7,9 +7,9 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Gallary</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="index1.php" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="gallary.php" class="nav-link">Gallary</a></li>
+        <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
         <button type="button" class="btn text-bg-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">
              Signout
         </button>      
@@ -35,12 +35,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn text-bg-danger">Yeah...</button>
+        <a href="login.php?logout">
+             <button type="button" class="btn text-bg-danger" >Yeah...</button>
+             </a>
       </div>
     </div>
   </div>
 </div>
-
 
 <script>
   const myModal = document.getElementById('myModal')

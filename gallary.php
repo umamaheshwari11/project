@@ -6,15 +6,14 @@
 <body>
 <?load_template('_header');?>
 <main>
-<?load_template('_calltoaction');?>
+<? if(Session::get('session_user')){ ?>
 <div class="album py-5 bg-light">
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <?$id = Session::get('session_user')['id']?>
       <?php
    $connect = Database::getConnection();
-   $query = "SELECT * FROM `image` WHERE uid = $id";
+   $query = "SELECT * FROM `image`";
    $result = mysqli_query($connect, $query); 
                      
    while($row = mysqli_fetch_array($result)){ ?>
@@ -38,40 +37,25 @@
       	<span class="likes"><?php echo getLikes($row['id']); ?></span>
                   </div>
                  </div>
-                <!-- <small class="text-muted">Delete </small>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">Delete</button> -->
+                <small class="text-muted">9 mins </small>
               </div>
             </div>
           </div>
         </div>
-
-<!-- confirm s-->
-<!-- <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you wanna Delete this picture 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="#">
-             <button type="button" class="btn text-bg-danger" >Yeah..</button>
-             </a>
-
-             
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- confirm e -->
 <? } ?>
 </div>
     </div>
   </div>
+  <? }
+  else{
+    echo ' <main class="container">
+    <div class="bg-light p-5 rounded mt-3">
+        <h1>Session not found</h1>
+        <p class="lead">Try to login <a href="login.php">here</a>
+        </p>
+    </div>
+  </main>';
+  }?>
 </main>
 <?load_template('_footer') ?>
 <script src="/app/assets/dist/js/bootstrap.bundle.min.js">
@@ -79,21 +63,7 @@
 <script src="scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-<script>
-  const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-  </script>
-
-  <style>
+<style>
   .posts-wrapper {
     width: 50%;
     margin: 20px auto;
@@ -122,3 +92,5 @@ myModal.addEventListener('shown.bs.modal', () => {
     color: blue;
   }
 </style>
+
+

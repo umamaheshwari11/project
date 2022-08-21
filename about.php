@@ -6,7 +6,7 @@
 <body>
 <?load_template('_header');?>
 <main>
-<?load_template('_calltoaction');?>
+<?load_template('_about');?>
 
 </main>
 <?load_template('_footer') ?>

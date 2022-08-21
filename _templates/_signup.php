@@ -18,7 +18,7 @@ if ($signup) {
         <main class="container">
             <div class="bg-light p-5 rounded mt-3">
                 <h1>Signup Success</h1>
-                <p class="lead">Now you can login from <a href="<?=get_config('base_path')?>login.php">here</a>.</p>
+                <p class="lead">Now you can login from <a href="login.php">here</a>.</p>
 
             </div>
         </main>
@@ -38,7 +38,8 @@ if ($signup) {
     ?>
   <main class="form-signin w-100 m-auto">
         <form method="post" action="signup.php">
-            <img class="mb-4" src="https://git.selfmade.ninja/uploads/-/system/appearance/logo/1/Logo_Dark.png" alt="" height="50">
+            <img class="mb-4 mx-auto" style="width: 350px;" src="https://api.logo.com/api/v2/images?logo=logo_68aac0f4-f420-44dc-91c9-08a819030537&format=webp&margins=0&quality=60&width=500&background=transparent&u=1661086195"
+             alt="nope" height="45">
             <h1 class="h3 mb-3 fw-normal">Signup here</h1>
             <div class="form-floating">
                 <input name="username" type="text" class="form-control" id="floatingInputUsername" placeholder="name@example.com">
@@ -53,12 +54,30 @@ if ($signup) {
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input id="myInput" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
+            <div class="checkbox mb-3">
+               <label>
+                   <input type="checkbox" value="remember-me" onclick="myFunction()"> Show password
+               </label>
+           </div>
             <button class="w-100 btn btn-lg btn-primary hvr-grow-rotate" type="submit">Sign up</button>
+            <div class="p-4">
+           Already signed up Login <a href="login.php">here</a>
+           </div>
         </form>
     </main>
 <?php
 }
-
+?>
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
