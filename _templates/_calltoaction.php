@@ -1,41 +1,4 @@
 
-<?php
-
-// if (isset($_POST['uploadfile']) and isset($_POST['description'])) {
-//     $uploadfile = $file = addslashes(file_get_contents($_FILES["uploadfile"]["tmp_name"],100));;
-//     $description = $_POST['description'];
-
-//     $conn = Database::getConnection();
-//     $sql = "INSERT INTO `image` (`uploadfile`, `description`)
-//     VALUES ('$uploadfile','$description')";
-//     $error = false;
-//     try{
-//     if ($conn->query($sql) === true) {
-//         $error = false;
-//     } 
-//     } catch(Exception $e){
-//         // echo "Error: " . $sql . "<br>" . $conn->error;
-//         $error = $conn->error;
-//     }
-
-   
-//    if(!$error){
-  //   echo '<div class="alert alert-info alert-dismissible fade show" role="alert">
-  //   <strong>Succesfull </strong> You should start uploading photos ❤️
-  //   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Success:"></button>
-  // </div>';
-//    }
-//    else{
-//     echo'<div class="alert alert-info alert-dismissible fade show" role="alert">
-//     <strong>Failed</strong> You should start uploading photos ❤️
-//     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Success:"></button>
-//   </div>';
-//    }
-// }
-
-
-?>
-
 
 <?php  
  $connect = Database::getConnection();
@@ -64,7 +27,7 @@
  ?>  
 
 <?
-if(Session::get('is_loggined')){
+if(Session::get('session_user')){
   $username = Session::get('session_user');
 if (!$_SERVER['HTTP_CACHE_CONTROL']) {
  echo' <div class="alert alert-info alert-dismissible fade show container" role="alert">
@@ -115,7 +78,8 @@ if (!$_SERVER['HTTP_CACHE_CONTROL']) {
 </div>
 <?
 } 
+else{
+  print_r("no session found");
+}
 ?>
-
-
 

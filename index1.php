@@ -1,3 +1,14 @@
+<?php include 'libs/load.php' ?>
+<?php include 'like.php' ?>
+
+<!doctype html>
+<html lang="en">
+<?load_template('_head');?>
+<body>
+<?load_template('_header');?>
+<main>
+<?load_template('_calltoaction');?>
+
 <div class="album py-5 bg-light">
     <div class="container">
 
@@ -15,23 +26,23 @@
             <? echo '<img src="data:image/jpeg;base64,'.base64_encode($row['uploadfile'] ).'" class="img-fluid" />  ';?>
         
             <div class="card-body">
-              <p class="card-text"><?=$row['description']?></p>
+              <p class="card-text"><?=$row['id']?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Description</button>
                 </div>
                 <small class="text-muted">9 mins</small>
-                
+
                 <div class="post-info">
 	    <!-- if user likes post, style button differently -->
-      	<i <?php if (userLiked($post['id'])): ?>
+      	<i <?php if (userLiked($row['id'])): ?>
       		  class="fa fa-thumbs-up like-btn"
       	  <?php else: ?>
       		  class="fa fa-thumbs-o-up like-btn"
       	  <?php endif ?>
-      	  data-id="<?php echo $post['id'] ?>"></i>
-      	<span class="likes"><?php echo getLikes($post['id']); ?></span>
+      	  data-id="<?php echo $row['id'] ?>"></i>
+      	<span class="likes"><?php echo getLikes($row['id']); ?></span>
       	
       	&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
@@ -40,11 +51,47 @@
             </div>
           </div>
         </div>
-
-     <? } ?>
-
-    
-      </div>
+<? } ?>
+</div>
     </div>
   </div>
 
+
+
+
+</main>
+<?load_template('_footer') ?>
+<script src="/app/assets/dist/js/bootstrap.bundle.min.js">
+</script>
+<script src="scripts.js"></script>
+</body>
+</html>
+<style>
+  .posts-wrapper {
+    width: 50%;
+    margin: 20px auto;
+    border: 1px solid #eee;
+  }
+  .post {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px 5px 0px 5px;
+    border: 1px solid green;
+  }
+  .post-info {
+    margin: 10px auto 0px;
+    padding: 5px;
+  }
+  .fa {
+    font-size: 1.2em;
+  }
+  .fa-thumbs-down, .fa-thumbs-o-down {
+    transform:rotateY(180deg);
+  }
+  .logged_in_user {
+    padding: 10px 30px 0px;
+  }
+  i {
+    color: blue;
+  }
+</style>
