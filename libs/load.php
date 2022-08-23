@@ -77,3 +77,20 @@ function signup($user, $pass, $email, $phone)
     $conn->close();
     return $error;
 }
+
+function comments_count($pid){
+    $zerro = "0";
+    $query = "SELECT * from comment  WHERE `pid` = '$pid'";
+    $conn = Database::getConnection();
+    $result = $conn->query($query);
+    if ($result) {
+        return mysqli_num_rows($result);
+    } else {
+        return $zerro;
+    }
+    return $query;
+
+    $conn->close();
+
+}
+

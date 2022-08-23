@@ -16,8 +16,10 @@ if (isset($_POST['comment'])) {
     $uid = Session::get('session_user')['id'];
     $comment = $_POST['comment'];
     $conn = Database::getConnection();
-    $sql = "INSERT INTO `comment` (`pid`,`uid`,`comment`)
-    VALUES ('$pid','$uid','$comment')";
+    date_default_timezone_set('Asia/Kolkata'); 
+    $currentTime = date( 'd-m-Y h:i:s A', time () ); 
+    $sql = "INSERT INTO `comment` (`pid`,`uid`,`comment`,`time`)
+    VALUES ('$pid','$uid','$comment','$currentTime')";
     $error = false;
 
     try{
@@ -72,9 +74,10 @@ else{
         $query2 = "SELECT * FROM `auth` WHERE id = $userid";
           $result2 = mysqli_query($connect, $query2); 
           while($row2 = mysqli_fetch_array($result2)){ ?>
-  <div class="alert alert-light p-0" role="alert">
-  <p class="text-muted p-0"><b class="text-danger p-0">@<?=$row2['username']?> </b>
- <?=$row['comment']?> </p>
+         <div class="alert alert-light p-0" role="alert">
+          <p class="text-muted p-0"><b class="text-danger p-0">@<?=$row2['username']?>
+          <span class="badge rounded-pill text-bg-warning"><?=$row['time']?></span></b>
+          <span class="badge rounded-pill text-bg-light"><?=$row['comment']?></span></p>
   
 
  

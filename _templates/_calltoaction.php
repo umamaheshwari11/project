@@ -45,7 +45,7 @@ if (!$_SERVER['HTTP_CACHE_CONTROL']) {
 
    <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Lens Elements <?=Session::get('session_user')['id']?></h1>
+        <h1 class="fw-light">Lens Elements </h1>
         <p class="lead text-muted">Its were you store the movement..</p>
         <p>
           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Click here to start uploading Photos</button>

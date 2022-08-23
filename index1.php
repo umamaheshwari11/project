@@ -40,7 +40,7 @@
       	<span class="likes"><?php echo getLikes($row['id']); ?></span>
                   </div>
                  </div>
-                 <small class="text-muted" type="button" onclick="Comment(<?=$row['id']?>)">Comments..</small>
+                 <small class="text-muted" type="button" onclick="Comment(<?=$row['id']?>)"><?=comments_count($row['id'])?> comment..</small>
 
               </div>
             </div>
