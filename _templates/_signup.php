@@ -42,19 +42,19 @@ if ($signup) {
              alt="nope" height="45">
             <h1 class="h3 mb-3 fw-normal">Signup here</h1>
             <div class="form-floating">
-                <input name="username" type="text" class="form-control" id="floatingInputUsername" placeholder="name@example.com">
+                <input name="username" type="text" class="form-control" id="floatingInputUsername" placeholder="name@example.com"required>
                 <label for="floatingInputUsername">Username</label>
             </div>
             <div class="form-floating">
-                <input name="phone" type="text" class="form-control" id="floatingInputUsername" placeholder="name@example.com">
+                <input name="phone" type="text" class="form-control" id="floatingInputUsername" placeholder="name@example.com"required>
                 <label for="floatingInputUsername">Phone</label>
             </div>
             <div class="form-floating">
-                <input name="email_address" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input name="email_address" type="email" class="form-control" id="floatingInput" placeholder="name@example.com"required>
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input id="myInput" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input id="myInput" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password"required>
                 <label for="floatingPassword">Password</label>
             </div>
             <div class="checkbox mb-3">

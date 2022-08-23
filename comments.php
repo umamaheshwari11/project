@@ -27,7 +27,7 @@ if (isset($_POST['comment'])) {
         $error = false;
      $preview = Session::get('page');
   header("Location: $preview");
-  echo $preview;
+
     } 
     } catch(Exception $e){
         // echo "Error: " . $sql . "<br>" . $conn->error;
@@ -39,9 +39,7 @@ if (isset($_POST['comment'])) {
     // $conn->close();
     // return $error;
 }
-else{
-  echo "Not received";
-}
+
 ?>
 <form method="post" action="comments.php">
   <?Session::set('temppostid',$_POST['postid']);?>
@@ -51,7 +49,7 @@ else{
     <h5 class="offcanvas-title" id="offcanvasLabel">
     <div class="input-group">
     <button  class="btn btn-dark" type="submit">Post</button>
-    <input id="myInput" name="comment" type="text" class="form-control" id="floatingPassword" placeholder="Comment heree.." required>
+    <input id="myInput" name="comment" type="text" class="form-control" id="floatingPassword" placeholder="Comment heree.."  maxlength="63" required>
     <button  type="button" class="btn btn-outline-danger" onclick="myFunction()">EXIT</button>
 
 
@@ -110,7 +108,7 @@ else{
 
 
 </main>
-<?load_template('_footer') ?>
+
 <script src="/app/assets/dist/js/bootstrap.bundle.min.js">
 </script>
 <script src="scripts.js"></script>

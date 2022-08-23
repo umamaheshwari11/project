@@ -7,7 +7,7 @@
 <?load_template('_header');?>
 <main>
 <? if(Session::get('session_user')){ ?>
-<div class="album py-5 bg-light">
+<div class="album py-5 bg-white">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <?$id = Session::get('session_user')['id']?>

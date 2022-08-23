@@ -54,7 +54,7 @@ if (!$_SERVER['HTTP_CACHE_CONTROL']) {
     </div>
   </section>
 
-  <div class="offcanvas offcanvas-bottom min-vh-100" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" >
+  <div class="offcanvas offcanvas-start vh-75" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" >
   <form method="POST" action="" enctype="multipart/form-data">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasBottomLabel">Press ❌ to Exit</h5>
@@ -63,13 +63,13 @@ if (!$_SERVER['HTTP_CACHE_CONTROL']) {
   <div class="offcanvas-body" >
   <div class=" py-2">
   <label for="formFileLg" class="form-label">Upload the pictures Which was taken by you✌️</label>
-  <input class="form-control form-control-lg w-25"  id="formFileLg" type="file" name="uploadfile" required>
+  <input class="form-control form-control-lg w-100"  id="formFileLg" type="file" name="uploadfile" required>
 </div>
 
 
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label" nameholder="hiii">Picture description✍️..</label>
-  <textarea name="description" class="form-control w-50 " id="exampleFormControlTextarea1" rows="3" placeholder="Type what Describes your picture" required></textarea>
+  <textarea name="description" class="form-control w-100 " id="exampleFormControlTextarea1" rows="3" placeholder="Type what Describes your picture" required></textarea>
 </div>
 <button class="btn btn-dark"   name="insert" id="insert" value="Insert" type="submit">Upload..</button>
 

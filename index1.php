@@ -9,9 +9,9 @@
 <?load_template('_header');?>
 <main>
 <?load_template('_calltoaction');?>
-<div class="album py-5 bg-light">
+<div class="album py-5 bg-white">
     <div class="container">
-
+    <div id="result2"></div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <?$id = Session::get('session_user')['id']?>
       <?php
@@ -41,7 +41,7 @@
                   </div>
                  </div>
                  <small class="text-muted" type="button" onclick="Comment(<?=$row['id']?>)"><?=comments_count($row['id'])?> comment..</small>
-
+                 <small class="badge text-bg-danger" type="button" onclick="Delete(<?=$row['id']?>)">Delete</small>
               </div>
             </div>
           </div>
@@ -118,6 +118,26 @@ myModal.addEventListener('shown.bs.modal', () => {
     $('#result').html(data);
    }
   });
+ }
+</script>
+
+<script>
+ function Delete(id)
+ {
+  if (confirm("Arye you sure You wanna DELETE??")) {
+    $.ajax({
+   url:"Delete.php",
+   method:"post",
+   data:{postid:id},
+   success:function(data)
+   {
+    
+    window.location.href = "index1.php";
+
+   }
+  });
+  } 
+  
  }
 </script>
 

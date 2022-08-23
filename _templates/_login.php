@@ -40,11 +40,11 @@ if (isset($_POST['name']) and isset($_POST['password']) and !empty($_POST['passw
              alt="nope" height="45">           <h1 class="h3 mb-3 fw-normal">Please Login here</h1>
 
            <div class="form-floating">
-               <input name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+               <input name="name" type="text" class="form-control" id="floatingInput" placeholder="name@example.com"required>
                <label for="floatingInput">Username</label>
            </div>
            <div class="form-floating">
-               <input id="myInput" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+               <input id="myInput" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password"required>
                <label for="floatingPassword">Password</label>
            </div>
 
