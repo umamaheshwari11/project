@@ -37,7 +37,8 @@
       	<span class="likes"><?php echo getLikes($row['id']); ?></span>
                   </div>
                  </div>
-                <small class="text-muted">9 mins </small>
+                 
+                <small class="text-muted" type="button" onclick="Comment(<?=$row['id']?>)">Comments..</small>
               </div>
             </div>
           </div>
@@ -61,6 +62,7 @@
 <script src="/app/assets/dist/js/bootstrap.bundle.min.js">
 </script>
 <script src="scripts.js"></script>
+<div id="result"></div>
 </body>
 </html>
 <style>
@@ -93,4 +95,18 @@
   }
 </style>
 
+<script>
+ function Comment(id)
+ {
+  $.ajax({
+   url:"comments.php",
+   method:"post",
+   data:{postid:id,page:"gallary.php"},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+</script>
 

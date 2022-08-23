@@ -1,3 +1,5 @@
+
+
 <?php include 'libs/load.php' ?>
 <?php include 'like.php' ?>
 <!doctype html>
@@ -38,36 +40,15 @@
       	<span class="likes"><?php echo getLikes($row['id']); ?></span>
                   </div>
                  </div>
-                <!-- <small class="text-muted">Delete </small>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">Delete</button> -->
+                 <small class="text-muted" type="button" onclick="Comment(<?=$row['id']?>)">Comments..</small>
+
               </div>
             </div>
           </div>
         </div>
 
-<!-- confirm s-->
-<!-- <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you wanna Delete this picture 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="#">
-             <button type="button" class="btn text-bg-danger" >Yeah..</button>
-             </a>
 
-             
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- confirm e -->
+
 <? } ?>
 </div>
     </div>
@@ -77,6 +58,7 @@
 <script src="/app/assets/dist/js/bootstrap.bundle.min.js">
 </script>
 <script src="scripts.js"></script>
+<div id="result"></div>
 </body>
 </html>
 
@@ -122,3 +104,21 @@ myModal.addEventListener('shown.bs.modal', () => {
     color: blue;
   }
 </style>
+
+
+<script>
+ function Comment(id)
+ {
+  $.ajax({
+   url:"comments.php",
+   method:"post",
+   data:{postid:id,page:"index1.php"},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+</script>
+
+
